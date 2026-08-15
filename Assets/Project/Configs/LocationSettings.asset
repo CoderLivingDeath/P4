@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 386fa92a7fb104140b09dea084693d8a, type: 3}
+  m_Name: LocationSettings
+  m_EditorClassIdentifier: Assembly-CSharp::LocationSettings
+  _entries:
+  - _zone: 0
+    _unlockedByDefault: 1
+    _peopleThreshold: 0
+  - _zone: 1
+    _unlockedByDefault: 0
+    _peopleThreshold: 5
+  - _zone: 2
+    _unlockedByDefault: 0
+    _peopleThreshold: 10
+  - _zone: 3
+    _unlockedByDefault: 0
+    _peopleThreshold: 15
+  - _zone: 4
+    _unlockedByDefault: 0
+    _peopleThreshold: 20
