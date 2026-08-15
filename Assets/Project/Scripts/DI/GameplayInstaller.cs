@@ -38,7 +38,7 @@ public class GameplayInstaller : MonoInstaller
         Container.BindInterfacesAndSelfTo<FoodService>().AsSingle();
         Container.BindInterfacesAndSelfTo<PeopleService>().AsSingle();
         Container.Bind<HungerSettings>().FromInstance(_hungerSettings).AsSingle();
-        Container.BindInterfacesAndSelfTo<GameOverUI>().FromInstance(_gameOverUI).AsSingle();
+        Container.BindInterfacesAndSelfTo<GameOverUI>().FromInstance(_gameOverUI).AsSingle(); // ошибка тут
         Container.BindInterfacesAndSelfTo<HungerService>().AsSingle();
         Container.Bind<GameManager>().AsSingle();
     }

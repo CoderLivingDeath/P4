@@ -3933,6 +3933,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7037588282907907590, guid: 6224b8d13d86c644e98d275212313231, type: 3}
   m_PrefabInstance: {fileID: 2082225914129924985}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1200215843 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 154426364008950465, guid: 6224b8d13d86c644e98d275212313231, type: 3}
+  m_PrefabInstance: {fileID: 2082225914129924985}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32dfd3cba518fda428914b0b1534c672, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1 &1270115623
 GameObject:
   m_ObjectHideFlags: 0
@@ -4649,7 +4660,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ResourcesManager
   _food: 12
-  _eggs: 2
+  _people: 0
 --- !u!1 &1401224542
 GameObject:
   m_ObjectHideFlags: 0
@@ -4817,6 +4828,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7b3bd25dbe4cb643ae132e351dc5f73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameplayInstaller
+  _cameraController: {fileID: 2018666402}
+  _villageUI: {fileID: 1200215843}
+  _huntUI: {fileID: 1831568644}
+  _resourcesManager: {fileID: 1391445040}
+  _foodSettings: {fileID: 11400000, guid: cc7e1c03fbf82db4aaf6719d89a13b15, type: 2}
+  _peopleSettings: {fileID: 11400000, guid: 70d9102bcf1fee04fa3295561a75fbd9, type: 2}
+  _hungerSettings: {fileID: 11400000, guid: 40f0f2ea6d862ae43bfa6d869b8585d0, type: 2}
+  _gameOverUI: {fileID: 0}
 --- !u!114 &1435989740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6364,6 +6383,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7602431036794960788, guid: f83f728b30dc07746b55d8e3e0386cf4, type: 3}
   m_PrefabInstance: {fileID: 8054682969417143543}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1831568644 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3502297482494648210, guid: f83f728b30dc07746b55d8e3e0386cf4, type: 3}
+  m_PrefabInstance: {fileID: 8054682969417143543}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1eafa306c2b7bd47909f5e7531ef42c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1 &1876096953
 GameObject:
   m_ObjectHideFlags: 0
@@ -7181,8 +7211,6 @@ MonoBehaviour:
   _move: {fileID: -1680190386980627800, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   _duration: 1
   _ease: 17
-  _minStep: -1
-  _maxStep: 1
 --- !u!1 &2058266826
 GameObject:
   m_ObjectHideFlags: 0
