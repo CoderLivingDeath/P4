@@ -318,7 +318,7 @@ GameObject:
   - component: {fileID: 82306332}
   - component: {fileID: 82306331}
   m_Layer: 0
-  m_Name: Screenshot 2026-08-15 072501_0
+  m_Name: VillageSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -393,7 +393,7 @@ Transform:
   m_GameObject: {fileID: 82306330}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.39, y: -0.2, z: 0}
+  m_LocalPosition: {x: 0.110000014, y: -0.2, z: 0}
   m_LocalScale: {x: 5.152107, y: 5.33479, z: 0.7817}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1395,7 +1395,7 @@ GameObject:
   - component: {fileID: 327508203}
   - component: {fileID: 327508202}
   m_Layer: 0
-  m_Name: Square
+  m_Name: MainMenuBG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2896,7 +2896,7 @@ GameObject:
   - component: {fileID: 774732531}
   - component: {fileID: 774732530}
   m_Layer: 0
-  m_Name: Square (1)
+  m_Name: FarmBG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3647,7 +3647,7 @@ GameObject:
   - component: {fileID: 951486288}
   - component: {fileID: 951486287}
   m_Layer: 0
-  m_Name: Square (2)
+  m_Name: MapBG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
