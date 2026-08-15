@@ -2490,6 +2490,8 @@ MonoBehaviour:
   _cameraController: {fileID: 2018666402}
   _villageUI: {fileID: 2082225914129924988}
   _huntUI: {fileID: 1831568648}
+  _resourcesManager: {fileID: 1391445040}
+  _foodSettings: {fileID: 11400000, guid: cc7e1c03fbf82db4aaf6719d89a13b15, type: 2}
 --- !u!114 &1435989740
 MonoBehaviour:
   m_ObjectHideFlags: 0

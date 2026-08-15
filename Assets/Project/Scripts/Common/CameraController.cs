@@ -29,7 +29,7 @@ public class CameraController : MonoBehaviour
 
     private float _screenWidth;
 
-    private Location _targetLocation;
+    private Location _targetLocation = Location.Village;
 
     private void Awake()
     {
