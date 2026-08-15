@@ -9,10 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13e874fe37179524781bd7c3066ccc48, type: 3}
-  m_Name: FoodSettings
-  m_EditorClassIdentifier: Assembly-CSharp::FoodSettings
-  _startFood: 50
-  _drainIntervalSeconds: 5
-  _drainAmount: 1
-  _foodPerPersonPerTick: 0.5
+  m_Script: {fileID: 11500000, guid: 4c5ef5f1287354d458c49dc98eea1c91, type: 3}
+  m_Name: PeopleSettings
+  m_EditorClassIdentifier: Assembly-CSharp::PeopleSettings
+  _startPeople: 2
+  _growthIntervalSeconds: 40
+  _growthAmount: 1

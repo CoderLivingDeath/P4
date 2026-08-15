@@ -10,13 +10,13 @@ public class ResourcesOverviewBehaviour : MonoBehaviour
     private TextMeshProUGUI _foodText;
 
     [SerializeField]
-    private TextMeshProUGUI _eggsText;
+    private TextMeshProUGUI _peopleText;
 
     [SerializeField]
     private string _foodFormat = "Food: {0}";
 
     [SerializeField]
-    private string _eggsFormat = "Eggs: {0}";
+    private string _peopleFormat = "People: {0}";
 
     private void OnEnable()
     {
@@ -24,7 +24,7 @@ public class ResourcesOverviewBehaviour : MonoBehaviour
             return;
 
         _resourcesManager.FoodChanged += OnFoodChanged;
-        _resourcesManager.EggsChanged += OnEggsChanged;
+        _resourcesManager.PeopleChanged += OnPeopleChanged;
 
         Refresh();
     }
@@ -35,13 +35,13 @@ public class ResourcesOverviewBehaviour : MonoBehaviour
             return;
 
         _resourcesManager.FoodChanged -= OnFoodChanged;
-        _resourcesManager.EggsChanged -= OnEggsChanged;
+        _resourcesManager.PeopleChanged -= OnPeopleChanged;
     }
 
     private void Refresh()
     {
         OnFoodChanged(_resourcesManager.Food);
-        OnEggsChanged(_resourcesManager.Eggs);
+        OnPeopleChanged(_resourcesManager.People);
     }
 
     private void OnFoodChanged(int value)
@@ -50,9 +50,9 @@ public class ResourcesOverviewBehaviour : MonoBehaviour
             _foodText.text = string.Format(_foodFormat, value);
     }
 
-    private void OnEggsChanged(int value)
+    private void OnPeopleChanged(int value)
     {
-        if (_eggsText != null)
-            _eggsText.text = string.Format(_eggsFormat, value);
+        if (_peopleText != null)
+            _peopleText.text = string.Format(_peopleFormat, value);
     }
 }

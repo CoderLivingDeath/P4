@@ -522,7 +522,7 @@ GameObject:
   - component: {fileID: 3016758825080674066}
   - component: {fileID: 8522124274282416855}
   m_Layer: 5
-  m_Name: Eggs
+  m_Name: People
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -575,7 +575,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Eggs: {:f}'
+  m_text: 'People: {0}'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1134,9 +1134,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ResourcesOverviewBehaviour
   _resourcesManager: {fileID: 0}
   _foodText: {fileID: 3235986794909162160}
-  _eggsText: {fileID: 8522124274282416855}
+  _peopleText: {fileID: 8522124274282416855}
   _foodFormat: 'Food: {0}'
-  _eggsFormat: 'Eggs: {0}'
+  _peopleFormat: 'People: {0}'
 --- !u!1 &6113791543860331970
 GameObject:
   m_ObjectHideFlags: 0

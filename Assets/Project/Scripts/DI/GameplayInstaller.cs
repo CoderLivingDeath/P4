@@ -19,6 +19,9 @@ public class GameplayInstaller : MonoInstaller
     private FoodSettings _foodSettings;
 
     [SerializeField]
+    private PeopleSettings _peopleSettings;
+
+    [SerializeField]
     private HungerSettings _hungerSettings;
 
     [SerializeField]
@@ -31,9 +34,12 @@ public class GameplayInstaller : MonoInstaller
         Container.BindInterfacesAndSelfTo<HuntUI>().FromInstance(_huntUI).AsSingle();
         Container.Bind<ResourcesManager>().FromInstance(_resourcesManager).AsSingle();
         Container.Bind<FoodSettings>().FromInstance(_foodSettings).AsSingle();
+        Container.Bind<PeopleSettings>().FromInstance(_peopleSettings).AsSingle();
         Container.BindInterfacesAndSelfTo<FoodService>().AsSingle();
+        Container.BindInterfacesAndSelfTo<PeopleService>().AsSingle();
         Container.Bind<HungerSettings>().FromInstance(_hungerSettings).AsSingle();
         Container.BindInterfacesAndSelfTo<GameOverUI>().FromInstance(_gameOverUI).AsSingle();
         Container.BindInterfacesAndSelfTo<HungerService>().AsSingle();
+        Container.Bind<GameManager>().AsSingle();
     }
 }

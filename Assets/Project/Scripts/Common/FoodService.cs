@@ -37,7 +37,9 @@ public class FoodService : IInitializable, ITickable, IDisposable
             return;
 
         _drainTimer = 0f;
-        _resourcesManager.TryConsumeFood(_settings.DrainAmount);
+        int drainAmount = _settings.DrainAmount + Mathf.RoundToInt(_settings.FoodPerPersonPerTick * _resourcesManager.People);
+        int drain = Mathf.Min(drainAmount, _resourcesManager.Food);
+        _resourcesManager.TryConsumeFood(drain);
     }
 
     public void Dispose()

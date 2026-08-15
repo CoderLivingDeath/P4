@@ -7,7 +7,6 @@ public enum HungerState
     Normal,
     Hungry,
     PostHunger,
-    GameOver,
 }
 
 public class HungerService : IInitializable, ITickable, IDisposable
@@ -16,7 +15,7 @@ public class HungerService : IInitializable, ITickable, IDisposable
 
     private readonly HungerSettings _settings;
 
-    private readonly GameOverUI _gameOverUI;
+    private readonly GameManager _gameManager;
 
     private HungerState _state;
 
@@ -25,11 +24,11 @@ public class HungerService : IInitializable, ITickable, IDisposable
     private float _postHungerTimer;
 
     [Inject]
-    public HungerService(FoodService foodService, HungerSettings settings, GameOverUI gameOverUI)
+    public HungerService(FoodService foodService, HungerSettings settings, GameManager gameManager)
     {
         _foodService = foodService;
         _settings = settings;
-        _gameOverUI = gameOverUI;
+        _gameManager = gameManager;
     }
 
     public HungerState State => _state;
@@ -42,6 +41,9 @@ public class HungerService : IInitializable, ITickable, IDisposable
 
     public void Tick()
     {
+        if (_gameManager.IsGameOver)
+            return;
+
         switch (_state)
         {
             case HungerState.Hungry:
@@ -49,8 +51,7 @@ public class HungerService : IInitializable, ITickable, IDisposable
                 if (_hungerTimer < _settings.HungerDurationSeconds)
                     return;
 
-                _state = HungerState.GameOver;
-                _gameOverUI.Show();
+                _gameManager.SetGameOver();
                 return;
 
             case HungerState.PostHunger:
@@ -71,6 +72,9 @@ public class HungerService : IInitializable, ITickable, IDisposable
 
     private void OnFoodChanged(int food)
     {
+        if (_gameManager.IsGameOver)
+            return;
+
         if (food <= 0)
         {
             if (_state == HungerState.Normal || _state == HungerState.PostHunger)

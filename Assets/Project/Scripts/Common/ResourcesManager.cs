@@ -7,20 +7,20 @@ public class ResourcesManager : MonoBehaviour
     private int _food;
 
     [SerializeField]
-    private int _eggs;
+    private int _people;
 
     public int Food => _food;
 
-    public int Eggs => _eggs;
+    public int People => _people;
 
     public event Action<int> FoodChanged;
 
-    public event Action<int> EggsChanged;
+    public event Action<int> PeopleChanged;
 
     private void OnValidate()
     {
         SetFood(_food);
-        SetEggs(_eggs);
+        SetPeople(_people);
     }
 
     public void AddFood(int amount)
@@ -40,21 +40,12 @@ public class ResourcesManager : MonoBehaviour
         return true;
     }
 
-    public void AddEggs(int amount)
+    public void AddPeople(int amount)
     {
         if (amount <= 0)
             return;
 
-        SetEggs(_eggs + amount);
-    }
-
-    public bool TryConsumeEggs(int amount)
-    {
-        if (amount <= 0 || _eggs < amount)
-            return false;
-
-        SetEggs(_eggs - amount);
-        return true;
+        SetPeople(_people + amount);
     }
 
     public void SetFood(int value)
@@ -68,14 +59,14 @@ public class ResourcesManager : MonoBehaviour
             FoodChanged?.Invoke(_food);
     }
 
-    private void SetEggs(int value)
+    public void SetPeople(int value)
     {
         int clamped = Mathf.Max(0, value);
-        if (clamped == _eggs)
+        if (clamped == _people)
             return;
 
-        _eggs = clamped;
+        _people = clamped;
         if (Application.isPlaying)
-            EggsChanged?.Invoke(_eggs);
+            PeopleChanged?.Invoke(_people);
     }
 }
