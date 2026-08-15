@@ -2667,7 +2667,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ResourcesManager
   _food: 12
-  _eggs: 2
+  _people: 2
 --- !u!1 &1401224542
 GameObject:
   m_ObjectHideFlags: 0
@@ -2840,6 +2840,7 @@ MonoBehaviour:
   _huntUI: {fileID: 1831568648}
   _resourcesManager: {fileID: 1391445040}
   _foodSettings: {fileID: 11400000, guid: cc7e1c03fbf82db4aaf6719d89a13b15, type: 2}
+  _peopleSettings: {fileID: 11400000, guid: 70d9102bcf1fee04fa3295561a75fbd9, type: 2}
   _hungerSettings: {fileID: 11400000, guid: 40f0f2ea6d862ae43bfa6d869b8585d0, type: 2}
   _gameOverUI: {fileID: 624855922}
 --- !u!114 &1435989740
