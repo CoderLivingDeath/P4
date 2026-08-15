@@ -15,6 +15,12 @@ public class HuntController : MonoBehaviour
     private TextMeshProUGUI _counter;
 
     [SerializeField]
+    private DinoList _dinoList;
+
+    [SerializeField]
+    private HuntResultOverviewBehaviour _resultBehaviour;
+
+    [SerializeField]
     private float _duration = 10f;
 
     [SerializeField]
@@ -95,9 +101,16 @@ public class HuntController : MonoBehaviour
             _onHuntEnd?.Invoke();
 
             if (Random.value <= _successChance)
+            {
+                Dino dino = PickRandomDino();
                 _onHuntSuccess?.Invoke();
+                _resultBehaviour?.OnHuntSuccess(dino);
+            }
             else
+            {
                 _onHuntFail?.Invoke();
+                _resultBehaviour?.OnHuntFail();
+            }
         }
     }
 
@@ -105,5 +118,13 @@ public class HuntController : MonoBehaviour
     {
         if (_counter != null)
             _counter.text = value.ToString();
+    }
+
+    private Dino PickRandomDino()
+    {
+        if (_dinoList == null || _dinoList.Dinos.Count == 0)
+            return null;
+
+        return _dinoList.Dinos[Random.Range(0, _dinoList.Dinos.Count)];
     }
 }

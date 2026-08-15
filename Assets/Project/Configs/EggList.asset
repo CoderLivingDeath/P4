@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d59388a68d3c15a479995b4204bbd658, type: 3}
+  m_Name: EggList
+  m_EditorClassIdentifier: Assembly-CSharp::EggList
+  _eggs:
+  - {fileID: 11400000, guid: 6f45b70968e8d434a81ff30aeaa6126d, type: 2}
+  - {fileID: 11400000, guid: b9343d1aa9cfa1b4995eff848e03923f, type: 2}
+  - {fileID: 11400000, guid: f77e1869b11870f47be4b83b98f5e9c6, type: 2}
