@@ -1,5 +1,6 @@
 using System;
 using _Project.Scripts.Utils;
+using Project.Scripts.Utils;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
