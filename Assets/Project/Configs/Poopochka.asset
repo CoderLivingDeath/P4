@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5582c04af707b6409fc6fd80ad988c2, type: 3}
   m_Name: Poopochka
   m_EditorClassIdentifier: Assembly-CSharp::Dino
-  _name: 
-  _sprite: {fileID: 0}
+  _name: Poopepochka
+  _sprite: {fileID: 4508318386055824055, guid: b31dff3d02c85ed4b9f905210c11f1a9, type: 3}

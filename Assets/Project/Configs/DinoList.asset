@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: DinoList
   m_EditorClassIdentifier: Assembly-CSharp::DinoList
   _dinos:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 92480665671d36d43842da1a298033ea, type: 2}
+  - {fileID: 11400000, guid: 3773124845ccec142a760a67f8b30fef, type: 2}
