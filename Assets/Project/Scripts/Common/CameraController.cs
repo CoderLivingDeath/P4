@@ -33,11 +33,16 @@ public class CameraController : MonoBehaviour
 
     private void Awake()
     {
-        if (_camera != null)
-        {
-            _originX = _camera.transform.position.x;
-            _screenWidth = _camera.Lens.OrthographicSize * 2f * _camera.Lens.Aspect;
-        }
+        if (_camera == null)
+            return;
+
+        _originX = _camera.transform.position.x;
+
+        Camera output = Camera.main;
+        float aspect = output != null ? output.aspect : _camera.Lens.Aspect;
+        _screenWidth = _camera.Lens.OrthographicSize * 2f * aspect;
+
+        Debug.Log($"CameraController: _originX = {_originX}, _screenWidth = {_screenWidth}");
     }
 
     private void OnEnable()
@@ -64,7 +69,7 @@ public class CameraController : MonoBehaviour
 
     public void Move(Direction direction)
     {
-        var target = direction == Direction.Left
+        Location? target = direction == Direction.Left
             ? LeftNeighbor(_targetLocation)
             : RightNeighbor(_targetLocation);
         if (target != null)
