@@ -4351,7 +4351,7 @@ GameObject:
   - component: {fileID: 1453187960}
   - component: {fileID: 1453187959}
   m_Layer: 0
-  m_Name: Text (TMP)
+  m_Name: ResultText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4809,11 +4809,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HuntResultOverviewBehaviour
   _huntController: {fileID: 1831568647}
   _resultText: {fileID: 1453187959}
+  _dinoText: {fileID: 1971738360}
   _successVariants:
   - T-Rex
   - Triceratops
   - Pterodactyl
-  _successFormat: 'Success: {0}'
+  _successText: Success
   _failText: Fail
 --- !u!1 &1522948714
 GameObject:
@@ -6302,7 +6303,7 @@ GameObject:
   - component: {fileID: 1971738361}
   - component: {fileID: 1971738360}
   m_Layer: 0
-  m_Name: Text (TMP) (1)
+  m_Name: DinoText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
