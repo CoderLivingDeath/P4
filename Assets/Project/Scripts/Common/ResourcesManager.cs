@@ -57,7 +57,7 @@ public class ResourcesManager : MonoBehaviour
         return true;
     }
 
-    private void SetFood(int value)
+    public void SetFood(int value)
     {
         int clamped = Mathf.Max(0, value);
         if (clamped == _food)
