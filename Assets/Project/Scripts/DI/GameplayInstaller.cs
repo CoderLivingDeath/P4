@@ -18,6 +18,12 @@ public class GameplayInstaller : MonoInstaller
     [SerializeField]
     private FoodSettings _foodSettings;
 
+    [SerializeField]
+    private HungerSettings _hungerSettings;
+
+    [SerializeField]
+    private GameOverUI _gameOverUI;
+
     public override void InstallBindings()
     {
         Container.Bind<CameraController>().FromInstance(_cameraController).AsSingle();
@@ -26,5 +32,8 @@ public class GameplayInstaller : MonoInstaller
         Container.Bind<ResourcesManager>().FromInstance(_resourcesManager).AsSingle();
         Container.Bind<FoodSettings>().FromInstance(_foodSettings).AsSingle();
         Container.BindInterfacesAndSelfTo<FoodService>().AsSingle();
+        Container.Bind<HungerSettings>().FromInstance(_hungerSettings).AsSingle();
+        Container.BindInterfacesAndSelfTo<GameOverUI>().FromInstance(_gameOverUI).AsSingle();
+        Container.BindInterfacesAndSelfTo<HungerService>().AsSingle();
     }
 }
