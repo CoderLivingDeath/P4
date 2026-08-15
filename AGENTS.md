@@ -16,6 +16,7 @@ Unity 6 (6000.7.0a4, alpha) 2D URP game. Zenject DI. Single `master` branch; ori
 ## Architecture
 
 - DI wiring in Zenject installers: `Assets/Resources/ProjectContext.prefab` → `Assets/Project/Scripts/DI/ProjectInstaller.cs` (empty); scene installer `DI/GameplayInstaller.cs` (empty). Bind services in installers — no `FindObjectOfType`/singletons; scene components are wired via `[SerializeField]` (e.g. `ResourcesOverviewBehaviour` → `ResourcesManager` on `[SCENE]`).
+- Dependencies are obtained via Zenject `[Inject]` (field or constructor) — never grabbed directly (`GetComponent`/`FindObjectOfType`). Scene components are bound in installers through **serialized references** on the installer (`[SerializeField]` + `FromInstance(...).AsSingle()`) — never via hierarchy search (`FromComponentInHierarchy`/`FromComponentsInHierarchy`). `[SerializeField]` is for prefab-internal wiring and installer scene references.
 - Project code lives in `Assets/Project/Scripts/` as plain `Assembly-CSharp` classes with **no namespaces**. Follow that.
 - Main scene: `Assets/Project/Scenes/Gameplay.unity` (only scene in build settings). Hunt UI: `MainCanvas` → `ResourcesBar` (TMP `Food`/`Eggs`); `HuntCanvas` → `StartHuntButton`/`Slider`/`HutnCounter`. Input uses the new Input System package (`InputActionReference`).
 
@@ -34,6 +35,10 @@ Unity 6 (6000.7.0a4, alpha) 2D URP game. Zenject DI. Single `master` branch; ori
 - Tween via `LMotion.Create(from, to, duration).WithEase(Ease.X).WithOnComplete(cb).BindTo...`; keep the `MotionHandle` and `Cancel()` it on repeat/`OnDisable` — stale handles leave tweens "derailed".
 - Binding names differ from intuition: `BindToAlpha(CanvasGroup)`, `BindToEulerAnglesZ(Transform)`, `BindToPosition(Transform)`. Verify exact names in the package-cache source before writing.
 - `WithLoops(-1, LoopType.Yoyo)` = infinite loop; `WithLoops(0, …)` does **not** mean infinite.
+
+## Coding conventions
+
+- Use human-readable `enum`s for all state/flags/step counters — never bare `int` (e.g. `Location` for the camera target instead of `int _targetStep`). Direction deltas and collection indices may stay `int`.
 
 ## UI text formatting
 
