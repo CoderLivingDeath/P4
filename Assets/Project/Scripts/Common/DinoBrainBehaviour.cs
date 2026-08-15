@@ -7,6 +7,8 @@ public class DinoBrainBehaviour : MonoBehaviour
     [SerializeField]
     private BoxCollider2D _area;
 
+    public void SetArea(BoxCollider2D area) => _area = area;
+
     [SerializeField]
     private float _moveDuration = 1f;
 
