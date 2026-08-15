@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Unity.Cinemachine;
@@ -6,6 +7,10 @@ using LitMotion.Extensions;
 
 public class CameraController : MonoBehaviour
 {
+    public event Action<Location> LocationChanged;
+
+    public Location CurrentLocation => _targetLocation;
+
     [SerializeField]
     private CinemachineCamera _camera;
 
@@ -18,22 +23,21 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     private Ease _ease = Ease.InOutCubic;
 
-    [SerializeField]
-    private int _minStep = int.MinValue;
-
-    [SerializeField]
-    private int _maxStep = int.MaxValue;
-
     private MotionHandle _moveHandle;
 
     private float _originX;
 
-    private int _targetStep;
+    private float _screenWidth;
+
+    private Location _targetLocation;
 
     private void Awake()
     {
         if (_camera != null)
+        {
             _originX = _camera.transform.position.x;
+            _screenWidth = _camera.Lens.OrthographicSize * 2f * _camera.Lens.Aspect;
+        }
     }
 
     private void OnEnable()
@@ -55,26 +59,56 @@ public class CameraController : MonoBehaviour
         if (value.x == 0f)
             return;
 
+        Move(value.x < 0f ? Direction.Left : Direction.Right);
+    }
+
+    public void Move(Direction direction)
+    {
+        var target = direction == Direction.Left
+            ? LeftNeighbor(_targetLocation)
+            : RightNeighbor(_targetLocation);
+        if (target != null)
+            MoveTo(target.Value);
+    }
+
+    public void MoveTo(Location target)
+    {
         var camera = _camera;
-        if (camera == null)
+        if (camera == null || target == _targetLocation)
             return;
 
-        int sign = (int)Mathf.Sign(value.x);
-        int nextStep = Mathf.Clamp(_targetStep + sign, _minStep, _maxStep);
-        if (nextStep == _targetStep)
-            return;
-
-        _targetStep = nextStep;
+        _targetLocation = target;
+        LocationChanged?.Invoke(_targetLocation);
 
         if (_moveHandle.IsActive())
             _moveHandle.Cancel();
 
-        float screenWidth = camera.Lens.OrthographicSize * 2f * camera.Lens.Aspect;
         float from = camera.transform.position.x;
-        float to = _originX + _targetStep * screenWidth;
+        float to = _originX + _screenWidth * OffsetFor(target);
 
         _moveHandle = LMotion.Create(from, to, _duration)
             .WithEase(_ease)
             .BindToPositionX(camera.transform);
     }
+
+    private static Location? LeftNeighbor(Location location) => location switch
+    {
+        Location.Village => Location.Map,
+        Location.Farm => Location.Village,
+        _ => null,
+    };
+
+    private static Location? RightNeighbor(Location location) => location switch
+    {
+        Location.Map => Location.Village,
+        Location.Village => Location.Farm,
+        _ => null,
+    };
+
+    private static float OffsetFor(Location location) => location switch
+    {
+        Location.Map => -1f,
+        Location.Farm => 1f,
+        _ => 0f,
+    };
 }
