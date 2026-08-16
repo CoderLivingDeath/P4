@@ -41,8 +41,6 @@ public class CameraController : MonoBehaviour
         Camera output = Camera.main;
         float aspect = output != null ? output.aspect : _camera.Lens.Aspect;
         _screenWidth = _camera.Lens.OrthographicSize * 2f * aspect;
-
-        Debug.Log($"CameraController: _originX = {_originX}, _screenWidth = {_screenWidth}");
     }
 
     private void OnEnable()
