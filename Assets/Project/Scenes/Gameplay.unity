@@ -393,6 +393,106 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 381620825}
   m_CullTransparentMesh: 1
+--- !u!1 &419920983
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 419920984}
+  - component: {fileID: 419920985}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &419920984
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 419920983}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 37, y: 0.25, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 18969317}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &419920985
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 419920983}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.3625641, y: 0.15401638}
+      - {x: -1.5199432, y: 1.8338135}
+      - {x: -3.346939, y: 1.5719801}
+      - {x: -3.5736694, y: 0.22162819}
+      - {x: -10.472435, y: 0.3068776}
+      - {x: -10.74692, y: 1.5726628}
+      - {x: -12.373266, y: 1.5828218}
+      - {x: -13.973163, y: 0.42987195}
+      - {x: -14.118111, y: -0.6107874}
+      - {x: -12.157602, y: -0.67123353}
+      - {x: -11.223034, y: -1.3267415}
+      - {x: -10.254988, y: -2.2046082}
+      - {x: -8.632687, y: -2.2827044}
+      - {x: -8.00598, y: -0.65691674}
+      - {x: -0.086087644, y: -0.6208804}
+      - {x: 0.48326647, y: -1.2270985}
+      - {x: 2.5518723, y: -1.2718}
+      - {x: 7.4741516, y: -0.87903976}
+      - {x: 7.519829, y: 2.0637584}
+      - {x: 6.5902596, y: 2.2232292}
+      - {x: 6.05717, y: 0.15794867}
+  m_UseDelaunayMesh: 1
 --- !u!1 &479750998
 GameObject:
   m_ObjectHideFlags: 0
@@ -3465,6 +3565,10 @@ PrefabInstance:
       value: 2.36904
       objectReference: {fileID: 0}
     - target: {fileID: 5087425640089653145, guid: 63d44ac6189210f488a76e9854e7f43c, type: 3}
+      propertyPath: _area
+      value: 
+      objectReference: {fileID: 419920985}
+    - target: {fileID: 5087425640089653145, guid: 63d44ac6189210f488a76e9854e7f43c, type: 3}
       propertyPath: _animator
       value: 
       objectReference: {fileID: 367726856}
@@ -4043,7 +4147,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 1702498447997760372, guid: 63d44ac6189210f488a76e9854e7f43c, type: 3}
-    m_AddedGameObjects: []
+    - {fileID: 6093943037635286557, guid: 63d44ac6189210f488a76e9854e7f43c, type: 3}
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 4658600684818192493, guid: 63d44ac6189210f488a76e9854e7f43c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 419920984}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1015811432736127249, guid: 63d44ac6189210f488a76e9854e7f43c, type: 3}
       insertIndex: -1
