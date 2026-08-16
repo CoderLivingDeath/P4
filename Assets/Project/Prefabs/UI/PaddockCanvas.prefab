@@ -330,7 +330,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e6748f2456b784469660af2322c495d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PaddockUIController
-  content: {fileID: 0}
+  content: {fileID: 3430211955250111934}
   _model: {fileID: 0}
   _slots:
   - {fileID: 887304728491453459}
