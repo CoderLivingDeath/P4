@@ -1375,28 +1375,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 693988643}
   m_CullTransparentMesh: 1
---- !u!114 &719750242 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2137674327570567948, guid: f83f728b30dc07746b55d8e3e0386cf4, type: 3}
-  m_PrefabInstance: {fileID: 8054682969417143543}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
---- !u!114 &770876140 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2478929577964015328, guid: b66d2a326aed9fd42a7905bd6a9e7ca7, type: 3}
-  m_PrefabInstance: {fileID: 8101458578891833367}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &779392302
 GameObject:
   m_ObjectHideFlags: 0
@@ -3883,18 +3861,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: VillageCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 3181831239429534445, guid: 6224b8d13d86c644e98d275212313231, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 12.905907
-      objectReference: {fileID: 0}
     - target: {fileID: 5157683210631949990, guid: 6224b8d13d86c644e98d275212313231, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
-    - target: {fileID: 6348784140945267023, guid: 6224b8d13d86c644e98d275212313231, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 22.600098
-      objectReference: {fileID: 0}
     - target: {fileID: 7037588282907907590, guid: 6224b8d13d86c644e98d275212313231, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -13010,10 +12980,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1735939280}
     m_Modifications:
-    - target: {fileID: 3502297482494648210, guid: f83f728b30dc07746b55d8e3e0386cf4, type: 3}
-      propertyPath: _villageButton
-      value: 
-      objectReference: {fileID: 719750242}
     - target: {fileID: 7602431036794960788, guid: f83f728b30dc07746b55d8e3e0386cf4, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -13115,10 +13081,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: WorldCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 7845195428306169356, guid: b66d2a326aed9fd42a7905bd6a9e7ca7, type: 3}
-      propertyPath: _timerText
-      value: 
-      objectReference: {fileID: 770876140}
     - target: {fileID: 7932497123417764598, guid: b66d2a326aed9fd42a7905bd6a9e7ca7, type: 3}
       propertyPath: m_Pivot.x
       value: 0
