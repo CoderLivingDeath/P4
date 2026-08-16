@@ -8,6 +8,8 @@ using UnityEngine.UI;
 
 public class QteDistreintController : MonoBehaviour
 {
+    public Dino CurrentDion;
+
     [Header("Elements")]
     [SerializeField]
     private List<Image> _elements;

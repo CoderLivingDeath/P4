@@ -131,4 +131,17 @@ public class PaddockBehaviour : MonoBehaviour
 
         Refresh();
     }
+
+    public int GetFreeSlot()
+    {
+        for (int i = 0; i < Model.Count; i++)
+        {
+            if (Model.Slots[i] == null)
+            {
+                return i;
+            }
+        }
+
+        return -1;
+    }
 }

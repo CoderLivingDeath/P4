@@ -45,6 +45,8 @@ public class FermerBrainBehaviour : MonoBehaviour
 
     public FermerState State;
 
+    public QteDistreintController qteDistreintController;
+
     private const float Epsilon = 1e-4f;
 
     private readonly List<Vector2> _vertices = new List<Vector2>();

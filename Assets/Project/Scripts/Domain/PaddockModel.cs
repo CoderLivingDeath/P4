@@ -11,6 +11,8 @@ public class PaddockModel : ScriptableObject
 
     public event Action<int> SlotChanged;
 
+    public Dino[] Slots => _slots;
+
     public int Count => _slots.Length;
 
     public Dino GetSlot(int index) => _slots[index];
