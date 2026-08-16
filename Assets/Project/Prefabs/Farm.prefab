@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3710538902498123535}
+  - component: {fileID: 5611884827765445590}
   m_Layer: 0
   m_Name: Paddocks
   m_TagString: Untagged
@@ -32,10 +33,27 @@ Transform:
   - {fileID: 1823679564090193319}
   - {fileID: 6593735445687210538}
   - {fileID: 9170071228798403752}
-  - {fileID: 2877802242683242632}
   - {fileID: 2703963251960955650}
+  - {fileID: 2877802242683242632}
   m_Father: {fileID: 4658600684818192493}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5611884827765445590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1594812048810541697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e0708f3a1d619a44b2c500ccd6e9f88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DinoPaddocksManager
+  paddockBehaviours:
+  - {fileID: 4011149342834691568}
+  - {fileID: 1532756545128803597}
+  - {fileID: 1438985844928743938}
+  - {fileID: 4989740304570201393}
 --- !u!1 &1622117839734995036
 GameObject:
   m_ObjectHideFlags: 0
@@ -862,6 +880,14 @@ PrefabInstance:
       propertyPath: _spriteRenderer
       value: 
       objectReference: {fileID: 1710821699655126260}
+    - target: {fileID: 6629357416854378325, guid: 05136d1c2c9e646e7bd55fe0d8a434a8, type: 3}
+      propertyPath: _onTameStart.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6629357416854378325, guid: 05136d1c2c9e646e7bd55fe0d8a434a8, type: 3}
+      propertyPath: _onTameStart.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6879834400673360010, guid: 05136d1c2c9e646e7bd55fe0d8a434a8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 29.29

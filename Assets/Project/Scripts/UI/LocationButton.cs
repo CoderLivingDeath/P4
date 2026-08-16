@@ -27,7 +27,7 @@ public class LocationButton : MonoBehaviour
     private LocationSettings _settings;
 
     [Inject]
-    private HuntPrepareUI _huntPrepareUI;
+    private HuntWorldUI _huntWorldUI;
 
     private LocationEntry _entry;
 
@@ -61,7 +61,8 @@ public class LocationButton : MonoBehaviour
 
     private void OnClicked()
     {
-        _huntPrepareUI.Open(_labelText != null ? _labelText.text : _zone.ToString());
+        string name = _labelText != null ? _labelText.text : _zone.ToString();
+        _huntWorldUI.Open(_zone, name);
     }
 
     private void OnPeopleChanged(int people)

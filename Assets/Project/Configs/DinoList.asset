@@ -15,3 +15,11 @@ MonoBehaviour:
   _dinos:
   - {fileID: 11400000, guid: 92480665671d36d43842da1a298033ea, type: 2}
   - {fileID: 11400000, guid: 3773124845ccec142a760a67f8b30fef, type: 2}
+  - {fileID: 11400000, guid: 9c2b5f6bc7f5d344e90a42e41752ee55, type: 2}
+  - {fileID: 11400000, guid: 3771ddb665378844fa716f041daba6d5, type: 2}
+  - {fileID: 11400000, guid: bfe02d2540284da4299f7032847c2f78, type: 2}
+  - {fileID: 11400000, guid: a26578d865f2bd9458c70c8790d20ca7, type: 2}
+  - {fileID: 11400000, guid: 4bb91cb7c3b9e8b418384090521258e3, type: 2}
+  - {fileID: 11400000, guid: f17b6d2e770efc8459d20147405770a2, type: 2}
+  - {fileID: 11400000, guid: 8f35f6058d1f2934ea41937f36db5ba2, type: 2}
+  - {fileID: 11400000, guid: ca9b4f10c14491c4985dca93c38c3f54, type: 2}

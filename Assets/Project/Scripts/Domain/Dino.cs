@@ -9,7 +9,12 @@ public class Dino : ScriptableObject
     [SerializeField]
     private Sprite _sprite;
 
+    [SerializeField]
+    private DinoType _type;
+
     public string Name => _name;
 
     public Sprite Sprite => _sprite;
+
+    public DinoType Type => _type;
 }
