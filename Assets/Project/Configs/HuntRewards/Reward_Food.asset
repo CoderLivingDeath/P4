@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 039e09f068c1c11438566069824fcaed, type: 3}
   m_Name: Reward_Food
   m_EditorClassIdentifier: Assembly-CSharp::Reward
-  _name: "\u0415\u0434\u0430"
+  _name: Food
   _icon: {fileID: 21300000, guid: 36467222149a0df4d985035dc9080ee1, type: 3}
   _type: 1
