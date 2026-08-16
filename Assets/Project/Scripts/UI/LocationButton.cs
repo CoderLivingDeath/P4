@@ -18,7 +18,10 @@ public class LocationButton : MonoBehaviour
     private TextMeshProUGUI _requirementText;
 
     [SerializeField]
-    private string _lockedFormat = "Required: {0}";
+    private Image _requirementBackground;
+
+    [SerializeField]
+    private string _lockedFormat = "Requires {0} people";
 
     [Inject]
     private ResourcesManager _resourcesManager;
@@ -83,5 +86,8 @@ public class LocationButton : MonoBehaviour
                 ? string.Empty
                 : string.Format(_lockedFormat, _entry.PeopleThreshold);
         }
+
+        if (_requirementBackground != null)
+            _requirementBackground.gameObject.SetActive(!unlocked);
     }
 }
