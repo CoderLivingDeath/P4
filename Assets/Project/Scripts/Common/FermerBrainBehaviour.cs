@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using LitMotion;
 using LitMotion.Extensions;
 
@@ -36,6 +37,12 @@ public class FermerBrainBehaviour : MonoBehaviour
     [SerializeField]
     private float _boundaryMargin = 0.1f;
 
+    [SerializeField]
+    private UnityEvent<Dino> _onTameStart;
+
+    [SerializeField]
+    private float _tameStopDistance = 1.5f;
+
     public FermerState State;
 
     private const float Epsilon = 1e-4f;
@@ -49,6 +56,7 @@ public class FermerBrainBehaviour : MonoBehaviour
     private int _pathIndex;
     private float _nextMoveTime;
     private bool _moving;
+    private Dino _tamingDino;
 
     public void Wander()
     {
@@ -68,6 +76,17 @@ public class FermerBrainBehaviour : MonoBehaviour
     {
         CancelMovement();
         State = FermerState.Idle;
+    }
+
+    public void TameDino(Dino dino, Vector3 targetPosition)
+    {
+        if (dino == null)
+            return;
+
+        _tamingDino = dino;
+        Vector3 direction = (targetPosition - transform.position).normalized;
+        Vector3 stopPoint = targetPosition - direction * _tameStopDistance;
+        MoveTo(stopPoint);
     }
 
     private void OnEnable()
@@ -112,6 +131,12 @@ public class FermerBrainBehaviour : MonoBehaviour
         StopRocking();
         StopAnimator();
 
+        if (_tamingDino != null)
+        {
+            _onTameStart?.Invoke(_tamingDino);
+            _tamingDino = null;
+        }
+
         if (State == FermerState.Wandering)
             _nextMoveTime = Time.time + Random.Range(_wanderDelayRange.x, _wanderDelayRange.y);
         else if (State == FermerState.MovingToTarget)
@@ -125,6 +150,7 @@ public class FermerBrainBehaviour : MonoBehaviour
 
         StopRocking();
         StopAnimator();
+        _tamingDino = null;
         _moving = false;
         _pathIndex = 0;
         _path.Clear();
