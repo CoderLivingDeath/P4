@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 12.905908}
+  m_AnchoredPosition: {x: 0, y: 12.905907}
   m_SizeDelta: {x: 0, y: -25.8118}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5319430226598223071
@@ -149,6 +149,7 @@ GameObject:
   - component: {fileID: 8059639396501028150}
   - component: {fileID: 1158432743364700165}
   - component: {fileID: 7471318863093228389}
+  - component: {fileID: 5259748062968078989}
   m_Layer: 5
   m_Name: SettingsButton
   m_TagString: Untagged
@@ -259,9 +260,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -270,6 +271,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+--- !u!114 &5259748062968078989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 551696669177477161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50b6dfa8e52717640b4acabc6dc0282f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HoverBehaviour
+  <Scale>k__BackingField: 1.1
+  <Duration>k__BackingField: 0.2
+  <Ease>k__BackingField: 5
 --- !u!1 &1486092356172441849
 GameObject:
   m_ObjectHideFlags: 0
@@ -400,6 +416,7 @@ GameObject:
   - component: {fileID: 993017875949898996}
   - component: {fileID: 4265263424208425609}
   - component: {fileID: 6619811840598692008}
+  - component: {fileID: 8482393629963540129}
   - component: {fileID: 566546110883016775}
   m_Layer: 5
   m_Name: FarmButton
@@ -466,6 +483,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 0.01
+--- !u!114 &8482393629963540129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2888080963587273887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50b6dfa8e52717640b4acabc6dc0282f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HoverBehaviour
+  <Scale>k__BackingField: 1.1
+  <Duration>k__BackingField: 0.2
+  <Ease>k__BackingField: 5
 --- !u!114 &566546110883016775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -509,7 +541,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6619811840598692008}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3340323872317380611
 GameObject:
   m_ObjectHideFlags: 0
@@ -932,6 +976,7 @@ GameObject:
   - component: {fileID: 6348784140945267023}
   - component: {fileID: 6871270235064596190}
   - component: {fileID: 1110438443664676386}
+  - component: {fileID: 4588119860608099504}
   - component: {fileID: 1257980735975436710}
   m_Layer: 5
   m_Name: MapButton
@@ -957,7 +1002,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 15, y: 0.0000047684}
+  m_AnchoredPosition: {x: 22.600098, y: 0.0000047684}
   m_SizeDelta: {x: 97.859985, y: 81.49}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &6871270235064596190
@@ -998,6 +1043,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 0.01
+--- !u!114 &4588119860608099504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4229511138587297541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50b6dfa8e52717640b4acabc6dc0282f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HoverBehaviour
+  <Scale>k__BackingField: 1.1
+  <Duration>k__BackingField: 0.2
+  <Ease>k__BackingField: 5
 --- !u!114 &1257980735975436710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1041,7 +1101,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1110438443664676386}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4855663741846850513
 GameObject:
   m_ObjectHideFlags: 0

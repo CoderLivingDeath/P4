@@ -263,11 +263,26 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7805233033278154116, guid: 80372e1c6ae6a2249b268d4f36ab4883, type: 3}
+      propertyPath: _timerText
+      value: 
+      objectReference: {fileID: 2478929577964015328}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80372e1c6ae6a2249b268d4f36ab4883, type: 3}
+--- !u!114 &2478929577964015328 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2515424129424049512, guid: 80372e1c6ae6a2249b268d4f36ab4883, type: 3}
+  m_PrefabInstance: {fileID: 40103287135226760}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!224 &2842650116177400402 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2881572045445880282, guid: 80372e1c6ae6a2249b268d4f36ab4883, type: 3}
