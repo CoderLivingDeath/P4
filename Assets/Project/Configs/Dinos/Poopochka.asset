@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Dino
   _name: Poopepochka
   _sprite: {fileID: 4508318386055824055, guid: b31dff3d02c85ed4b9f905210c11f1a9, type: 3}
+  _type: 1

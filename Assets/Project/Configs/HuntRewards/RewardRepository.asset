@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fe4d501bdf82864a84f4e300183ca33, type: 3}
+  m_Name: RewardRepository
+  m_EditorClassIdentifier: Assembly-CSharp::RewardRepository
+  _entries:
+  - _zone: 0
+    _food: {fileID: 11400000, guid: 5249b1a7d37336148aa055b10a3715c3, type: 2}
+    _foodQuantity: 5
+    _foodUseRange: 1
+    _foodMinQuantity: 3
+    _foodMaxQuantity: 8
+    _missionTimeSeconds: 10
+    _dinos:
+    - _dino: {fileID: 11400000, guid: 9c2b5f6bc7f5d344e90a42e41752ee55, type: 2}
+      _availableFromStart: 1
+      _catchChance: 0.3
+    - _dino: {fileID: 11400000, guid: 3771ddb665378844fa716f041daba6d5, type: 2}
+      _availableFromStart: 0
+      _catchChance: 0.3
+  - _zone: 1
+    _food: {fileID: 11400000, guid: 5249b1a7d37336148aa055b10a3715c3, type: 2}
+    _foodQuantity: 5
+    _foodUseRange: 1
+    _foodMinQuantity: 3
+    _foodMaxQuantity: 8
+    _missionTimeSeconds: 120
+    _dinos:
+    - _dino: {fileID: 11400000, guid: bfe02d2540284da4299f7032847c2f78, type: 2}
+      _availableFromStart: 1
+      _catchChance: 0.3
+    - _dino: {fileID: 11400000, guid: a26578d865f2bd9458c70c8790d20ca7, type: 2}
+      _availableFromStart: 0
+      _catchChance: 0.3
+  - _zone: 2
+    _food: {fileID: 11400000, guid: 5249b1a7d37336148aa055b10a3715c3, type: 2}
+    _foodQuantity: 5
+    _foodUseRange: 1
+    _foodMinQuantity: 3
+    _foodMaxQuantity: 8
+    _missionTimeSeconds: 150
+    _dinos:
+    - _dino: {fileID: 11400000, guid: 4bb91cb7c3b9e8b418384090521258e3, type: 2}
+      _availableFromStart: 1
+      _catchChance: 0.3
+    - _dino: {fileID: 11400000, guid: f17b6d2e770efc8459d20147405770a2, type: 2}
+      _availableFromStart: 0
+      _catchChance: 0.3
+  - _zone: 3
+    _food: {fileID: 11400000, guid: 5249b1a7d37336148aa055b10a3715c3, type: 2}
+    _foodQuantity: 5
+    _foodUseRange: 1
+    _foodMinQuantity: 3
+    _foodMaxQuantity: 8
+    _missionTimeSeconds: 180
+    _dinos:
+    - _dino: {fileID: 11400000, guid: 8f35f6058d1f2934ea41937f36db5ba2, type: 2}
+      _availableFromStart: 1
+      _catchChance: 0.3
+  - _zone: 4
+    _food: {fileID: 11400000, guid: 5249b1a7d37336148aa055b10a3715c3, type: 2}
+    _foodQuantity: 5
+    _foodUseRange: 1
+    _foodMinQuantity: 3
+    _foodMaxQuantity: 8
+    _missionTimeSeconds: 240
+    _dinos:
+    - _dino: {fileID: 11400000, guid: ca9b4f10c14491c4985dca93c38c3f54, type: 2}
+      _availableFromStart: 1
+      _catchChance: 0.3

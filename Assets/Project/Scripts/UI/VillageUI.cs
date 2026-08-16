@@ -21,22 +21,32 @@ public class VillageUI : ContentUi, IInitializable, IDisposable
         _mapButton.onClick.AddListener(MoveToMap);
         _farmButton.onClick.AddListener(MoveToFarm);
         _cameraController.LocationChanged += OnLocationChanged;
-        OnLocationChanged(_cameraController.CurrentLocation);
+        _cameraController.LocationArrived += OnLocationArrived;
+
+        if (_cameraController.CurrentLocation == Location.Village)
+            Show();
+        else
+            Hide();
     }
 
     public void Dispose()
     {
         _cameraController.LocationChanged -= OnLocationChanged;
+        _cameraController.LocationArrived -= OnLocationArrived;
         _mapButton.onClick.RemoveListener(MoveToMap);
         _farmButton.onClick.RemoveListener(MoveToFarm);
     }
 
     private void OnLocationChanged(Location location)
     {
+        if (location != Location.Village)
+            Hide();
+    }
+
+    private void OnLocationArrived(Location location)
+    {
         if (location == Location.Village)
             Show();
-        else
-            Hide();
     }
 
     private void MoveToMap()
