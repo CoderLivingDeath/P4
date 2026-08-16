@@ -16,6 +16,12 @@ public class FermerBrainBehaviour : MonoBehaviour
     private PolygonCollider2D _area;
 
     [SerializeField]
+    private Animator _animator;
+
+    [SerializeField]
+    private SpriteRenderer _spriteRenderer;
+
+    [SerializeField]
     private float _speed = 2f;
 
     [SerializeField]
@@ -104,6 +110,7 @@ public class FermerBrainBehaviour : MonoBehaviour
         _moving = false;
         _pathIndex = 0;
         StopRocking();
+        StopAnimator();
 
         if (State == FermerState.Wandering)
             _nextMoveTime = Time.time + Random.Range(_wanderDelayRange.x, _wanderDelayRange.y);
@@ -117,9 +124,32 @@ public class FermerBrainBehaviour : MonoBehaviour
             _moveHandle.Cancel();
 
         StopRocking();
+        StopAnimator();
         _moving = false;
         _pathIndex = 0;
         _path.Clear();
+    }
+
+    private void UpdateAnimatorDirection(Vector3 from, Vector3 to)
+    {
+        if (_animator == null || _animator.runtimeAnimatorController == null)
+            return;
+
+        Vector3 dir = (to - from).normalized;
+        _animator.SetFloat("DirX", dir.x);
+        _animator.SetFloat("DirY", dir.y);
+        _animator.SetBool("IsWalk", true);
+
+        if (_spriteRenderer != null && Mathf.Abs(dir.x) > 0.01f)
+            _spriteRenderer.flipX = dir.x < 0f;
+    }
+
+    private void StopAnimator()
+    {
+        if (_animator == null || _animator.runtimeAnimatorController == null)
+            return;
+
+        _animator.SetBool("IsWalk", false);
     }
 
     private void MoveAlongPath(List<Vector3> path)
@@ -164,6 +194,7 @@ public class FermerBrainBehaviour : MonoBehaviour
             .WithOnComplete(OnLegComplete)
             .BindToPosition(transform);
 
+        UpdateAnimatorDirection(from, to);
         StartRocking();
     }
 

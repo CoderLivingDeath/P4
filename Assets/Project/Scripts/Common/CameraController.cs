@@ -74,6 +74,10 @@ public class CameraController : MonoBehaviour
             MoveTo(target.Value);
     }
 
+    public void SlideLeft() => Move(Direction.Left);
+
+    public void SlideRight() => Move(Direction.Right);
+
     public void MoveTo(Location target)
     {
         var camera = _camera;
