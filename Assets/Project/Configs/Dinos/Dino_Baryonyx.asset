@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Dino_Baryonyx
   m_EditorClassIdentifier: Assembly-CSharp::Dino
   _name: Baryonyx
-  _sprite: {fileID: 4508318386055824055, guid: b31dff3d02c85ed4b9f905210c11f1a9, type: 3}
+  _sprite: {fileID: 8973203717877101659, guid: 422c2a37d162d4deaba4b304b5e38ceb, type: 3}
   _type: 3

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Dino_Magmaraptor
   m_EditorClassIdentifier: Assembly-CSharp::Dino
   _name: Magmaraptor
-  _sprite: {fileID: 4508318386055824055, guid: b31dff3d02c85ed4b9f905210c11f1a9, type: 3}
+  _sprite: {fileID: 6090704108881584721, guid: cad03b8adc3c5469cb34ddef4c00b9fd, type: 3}
   _type: 6

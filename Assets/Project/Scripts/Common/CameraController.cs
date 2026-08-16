@@ -9,6 +9,8 @@ public class CameraController : MonoBehaviour
 {
     public event Action<Location> LocationChanged;
 
+    public event Action<Location> LocationArrived;
+
     public Location CurrentLocation => _targetLocation;
 
     [SerializeField]
@@ -95,6 +97,7 @@ public class CameraController : MonoBehaviour
 
         _moveHandle = LMotion.Create(from, to, _duration)
             .WithEase(_ease)
+            .WithOnComplete(() => LocationArrived?.Invoke(_targetLocation))
             .BindToPositionX(camera.transform);
     }
 

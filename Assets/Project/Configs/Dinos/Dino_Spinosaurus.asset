@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Dino_Spinosaurus
   m_EditorClassIdentifier: Assembly-CSharp::Dino
   _name: Spinosaurus
-  _sprite: {fileID: 4508318386055824055, guid: b31dff3d02c85ed4b9f905210c11f1a9, type: 3}
+  _sprite: {fileID: -9031156742192291954, guid: 8b15fc831ccab426887df4ff79927f45, type: 3}
   _type: 2

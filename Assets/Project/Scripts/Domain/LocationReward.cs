@@ -10,9 +10,15 @@ public class LocationDino
     [SerializeField]
     private bool _availableFromStart;
 
+    [SerializeField]
+    [Range(0f, 1f)]
+    private float _catchChance = 0.3f;
+
     public Dino Dino => _dino;
 
     public bool AvailableFromStart => _availableFromStart;
+
+    public float CatchChance => _catchChance;
 }
 
 [System.Serializable]

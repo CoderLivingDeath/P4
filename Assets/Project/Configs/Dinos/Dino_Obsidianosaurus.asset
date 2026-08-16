@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Dino_Obsidianosaurus
   m_EditorClassIdentifier: Assembly-CSharp::Dino
   _name: Obsidianosaurus
-  _sprite: {fileID: 4508318386055824055, guid: b31dff3d02c85ed4b9f905210c11f1a9, type: 3}
+  _sprite: {fileID: -2479376732631533480, guid: 563855b17122947ada8ac7fd2cb2d8e6, type: 3}
   _type: 7

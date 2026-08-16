@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Dino_Troodon
   m_EditorClassIdentifier: Assembly-CSharp::Dino
   _name: Troodon
-  _sprite: {fileID: 4508318386055824055, guid: b31dff3d02c85ed4b9f905210c11f1a9, type: 3}
+  _sprite: {fileID: -319718087913226523, guid: 7677e0242d311419a88268f70da5f3fd, type: 3}
   _type: 1
