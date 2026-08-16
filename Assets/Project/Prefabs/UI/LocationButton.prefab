@@ -276,7 +276,7 @@ MonoBehaviour:
   _button: {fileID: 4890771312350481293}
   _labelText: {fileID: 2362483694475294912}
   _requirementText: {fileID: 7998152893872249349}
-  _lockedFormat: "\u041D\u0443\u0436\u043D\u043E: {0}"
+  _lockedFormat: "Required: {0}"
 --- !u!1 &8177351512773854919
 GameObject:
   m_ObjectHideFlags: 0

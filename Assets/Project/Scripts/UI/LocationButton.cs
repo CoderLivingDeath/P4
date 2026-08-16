@@ -18,7 +18,7 @@ public class LocationButton : MonoBehaviour
     private TextMeshProUGUI _requirementText;
 
     [SerializeField]
-    private string _lockedFormat = "Нужно: {0}";
+    private string _lockedFormat = "Required: {0}";
 
     [Inject]
     private ResourcesManager _resourcesManager;
