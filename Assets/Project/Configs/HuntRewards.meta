@@ -1,8 +1,14 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Resources/Tilemap/Tiles/TestHouse/unga2_1.asset.meta
+guid: 4eac1baa0364f074bb9402195f7d6e6d
+NativeFormatImporter:
+========
 guid: 5c60c1c19dd48574cb22ba51f134048e
 folderAsset: yes
 DefaultImporter:
+>>>>>>>> master:Assets/Project/Configs/HuntRewards.meta
   externalObjects: {}
+  mainObjectFileID: 11400000
   userData: 
   assetBundleName: 
   assetBundleVariant: 

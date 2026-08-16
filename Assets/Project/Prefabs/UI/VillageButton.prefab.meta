@@ -1,7 +1,13 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Resources/Tilemap/Tiles/TestHouse/unga2_10.asset.meta
+guid: 2bdbcc688a440e745be090e22e3304e0
+NativeFormatImporter:
+========
 guid: 5353368f09ab99b439601049a9f9f436
 PrefabImporter:
+>>>>>>>> master:Assets/Project/Prefabs/UI/VillageButton.prefab.meta
   externalObjects: {}
+  mainObjectFileID: 11400000
   userData: 
   assetBundleName: 
   assetBundleVariant: 
