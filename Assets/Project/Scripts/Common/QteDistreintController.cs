@@ -1,6 +1,6 @@
 using System.Collections;
+using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Events;
@@ -9,6 +9,8 @@ using UnityEngine.UI;
 public class QteDistreintController : MonoBehaviour
 {
     public Dino CurrentDion;
+
+    public event Action<Dino> SequenceCompleted;
 
     [Header("Elements")]
     [SerializeField]
@@ -40,7 +42,7 @@ public class QteDistreintController : MonoBehaviour
     private QteSequence _sequence;
 
     [SerializeField]
-    private int _randomSequenceLength = 5;
+    private int _randomSequenceLength = 4;
 
     [Header("Events")]
     [SerializeField]
@@ -116,6 +118,7 @@ public class QteDistreintController : MonoBehaviour
             return;
 
         _currentStepIndex = 0;
+        _inputBlocked = false;
         _direction = _currentX >= _maxX ? -1 : (_currentX <= _minX ? 1 : _direction);
         RestoreDefaultColors();
 
@@ -136,10 +139,25 @@ public class QteDistreintController : MonoBehaviour
         _isPlaying = true;
     }
 
+    public void StartQTE(Dino dino)
+    {
+        if (dino == null)
+            return;
+
+        CurrentDion = dino;
+        transform.localScale = Vector3.one;
+        gameObject.SetActive(true);
+        StartQTE();
+    }
+
     public void StopQTE()
     {
         _isPlaying = false;
+        _inputBlocked = false;
+        CurrentDion = null;
         RestoreDefaultColors();
+        transform.localScale = Vector3.zero;
+        gameObject.SetActive(false);
     }
 
     private void OnPressPerformed(InputAction.CallbackContext context)
@@ -206,10 +224,7 @@ public class QteDistreintController : MonoBehaviour
             _currentStepIndex++;
 
             if (_currentStepIndex >= _sequence.Length)
-            {
-                _isPlaying = false;
-                _onSequenceComplete?.Invoke();
-            }
+                CompleteQTE();
         }
         else
         {
@@ -221,6 +236,37 @@ public class QteDistreintController : MonoBehaviour
         }
 
         _inputBlocked = false;
+    }
+
+    private void CompleteQTE()
+    {
+        Dino completedDino = CurrentDion;
+        _isPlaying = false;
+        _inputBlocked = false;
+        CurrentDion = null;
+
+        // Hide first so an exception in a listener cannot leave the QTE on screen.
+        transform.localScale = Vector3.zero;
+
+        try
+        {
+            SequenceCompleted?.Invoke(completedDino);
+        }
+        catch (Exception exception)
+        {
+            Debug.LogException(exception, this);
+        }
+
+        try
+        {
+            _onSequenceComplete?.Invoke();
+        }
+        catch (Exception exception)
+        {
+            Debug.LogException(exception, this);
+        }
+
+        gameObject.SetActive(false);
     }
 
     private void RestoreDefaultColors()
