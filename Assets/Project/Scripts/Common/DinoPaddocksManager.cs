@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class DinoPaddocksManager : MonoBehaviour
@@ -8,24 +7,32 @@ public class DinoPaddocksManager : MonoBehaviour
 
     public bool TrySetDinoInFreeSlot(Dino dino)
     {
-        var freepaddock = GetFreePaddock();
-        if (freepaddock = null) return false;
-        int slot = freepaddock.GetFreeSlot();
-        if (slot == -1) return false;
+        if (dino == null)
+            return false;
 
-        freepaddock.Model.SetSlot(slot, dino);
+        PaddockBehaviour freePaddock = GetFreePaddock();
+        if (freePaddock == null)
+            return false;
+
+        int slot = freePaddock.GetFreeSlot();
+        if (slot < 0)
+            return false;
+
+        // SetSlot raises SlotChanged, which refreshes both the paddock and its UI.
+        freePaddock.Model.SetSlot(slot, dino);
 
         return true;
     }
     
     public PaddockBehaviour GetFreePaddock()
     {
+        if (paddockBehaviours == null)
+            return null;
+
         foreach (var item in paddockBehaviours)
         {
-            foreach (var slot in item.Model.Slots)
-            {
-                if (slot == null) return item;
-            }
+            if (item != null && item.GetFreeSlot() >= 0)
+                return item;
         }
 
         return null;

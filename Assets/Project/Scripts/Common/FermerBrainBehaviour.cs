@@ -43,6 +43,12 @@ public class FermerBrainBehaviour : MonoBehaviour
     [SerializeField]
     private float _tameStopDistance = 1.5f;
 
+    [SerializeField]
+    private DinoPaddocksManager _paddocksManager;
+
+    [SerializeField]
+    private DinosHolder _dinosHolder;
+
     public FermerState State;
 
     public QteDistreintController qteDistreintController;
@@ -58,7 +64,13 @@ public class FermerBrainBehaviour : MonoBehaviour
     private int _pathIndex;
     private float _nextMoveTime;
     private bool _moving;
+    private bool _legCompleted;
     private Dino _tamingDino;
+
+    private void Awake()
+    {
+        ResolveReferences();
+    }
 
     public void Wander()
     {
@@ -85,14 +97,25 @@ public class FermerBrainBehaviour : MonoBehaviour
         if (dino == null)
             return;
 
-        _tamingDino = dino;
         Vector3 direction = (targetPosition - transform.position).normalized;
         Vector3 stopPoint = targetPosition - direction * _tameStopDistance;
-        MoveTo(stopPoint);
+
+        State = FermerState.MovingToTarget;
+        CancelMovement();
+        _tamingDino = dino;
+        MoveAlongPath(FindPath(transform.position, stopPoint));
     }
 
     private void OnEnable()
     {
+        ResolveReferences();
+
+        if (qteDistreintController != null)
+        {
+            qteDistreintController.SequenceCompleted -= OnTamingCompleted;
+            qteDistreintController.SequenceCompleted += OnTamingCompleted;
+        }
+
         if (State == FermerState.Idle)
             Wander();
     }
@@ -113,8 +136,10 @@ public class FermerBrainBehaviour : MonoBehaviour
             return;
         }
 
-        if (_moving && !_moveHandle.IsActive())
+        if (_moving && _legCompleted)
         {
+            _legCompleted = false;
+
             if (_pathIndex < _path.Count)
                 StartNextLeg();
             else
@@ -129,20 +154,62 @@ public class FermerBrainBehaviour : MonoBehaviour
     private void OnPathFinished()
     {
         _moving = false;
+        _legCompleted = false;
         _pathIndex = 0;
         StopRocking();
         StopAnimator();
 
         if (_tamingDino != null)
         {
-            _onTameStart?.Invoke(_tamingDino);
+            Dino tamedDino = _tamingDino;
             _tamingDino = null;
+
+            _onTameStart?.Invoke(tamedDino);
+
+            if (qteDistreintController != null)
+                qteDistreintController.StartQTE(tamedDino);
+            else
+                OnTamingCompleted(tamedDino);
         }
 
         if (State == FermerState.Wandering)
             _nextMoveTime = Time.time + Random.Range(_wanderDelayRange.x, _wanderDelayRange.y);
         else if (State == FermerState.MovingToTarget)
             State = FermerState.Idle;
+    }
+
+    public bool AddDinoToPaddock(Dino dino)
+    {
+        if (_paddocksManager == null)
+            return false;
+
+        return _paddocksManager.TrySetDinoInFreeSlot(dino);
+    }
+
+    private void OnTamingCompleted(Dino dino)
+    {
+        bool added = AddDinoToPaddock(dino);
+        if (_dinosHolder != null)
+        {
+            if (added)
+                _dinosHolder.Remove(dino);
+            else
+                _dinosHolder.Release(dino);
+        }
+
+        Wander();
+    }
+
+    private void ResolveReferences()
+    {
+        if (_paddocksManager == null)
+            _paddocksManager = transform.root.GetComponentInChildren<DinoPaddocksManager>(true);
+
+        if (_dinosHolder == null)
+            _dinosHolder = transform.root.GetComponentInChildren<DinosHolder>(true);
+
+        if (qteDistreintController == null)
+            qteDistreintController = FindFirstObjectByType<QteDistreintController>(FindObjectsInactive.Include);
     }
 
     private void CancelMovement()
@@ -154,6 +221,7 @@ public class FermerBrainBehaviour : MonoBehaviour
         StopAnimator();
         _tamingDino = null;
         _moving = false;
+        _legCompleted = false;
         _pathIndex = 0;
         _path.Clear();
     }
@@ -192,6 +260,7 @@ public class FermerBrainBehaviour : MonoBehaviour
         _path.AddRange(path);
         _pathIndex = 0;
         _moving = true;
+        _legCompleted = false;
         StartNextLeg();
     }
 
@@ -199,6 +268,8 @@ public class FermerBrainBehaviour : MonoBehaviour
     {
         if (!_moving)
             return;
+
+        _legCompleted = false;
 
         Vector3 from = transform.position;
         while (_pathIndex < _path.Count && Vector3.Distance(from, _path[_pathIndex]) < Epsilon)
@@ -229,6 +300,7 @@ public class FermerBrainBehaviour : MonoBehaviour
     private void OnLegComplete()
     {
         _pathIndex++;
+        _legCompleted = true;
     }
 
     private void StartRocking()
@@ -254,6 +326,9 @@ public class FermerBrainBehaviour : MonoBehaviour
 
     private void OnDisable()
     {
+        if (qteDistreintController != null)
+            qteDistreintController.SequenceCompleted -= OnTamingCompleted;
+
         if (_moveHandle.IsActive())
             _moveHandle.Cancel();
 
