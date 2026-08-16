@@ -1,8 +1,9 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using LitMotion;
 using LitMotion.Extensions;
 
-public class HoverBehaviour : MonoBehaviour
+public class HoverBehaviour : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [field: Header("Hover")]
     [field: SerializeField]
@@ -21,7 +22,8 @@ public class HoverBehaviour : MonoBehaviour
 
     private void Awake()
     {
-        _originalScale = transform.localScale;
+        var rect = GetComponent<RectTransform>();
+        _originalScale = rect.localScale;
     }
 
     public void HoverStart()
@@ -29,9 +31,10 @@ public class HoverBehaviour : MonoBehaviour
         if (_handle.IsActive())
             _handle.Cancel();
 
+        var rect = GetComponent<RectTransform>();
         _handle = LMotion.Create(_originalScale, _originalScale * Scale, Duration)
             .WithEase(Ease)
-            .BindToLocalScale(transform);
+            .BindToLocalScale(rect);
     }
 
     public void HoverEnd()
@@ -39,9 +42,10 @@ public class HoverBehaviour : MonoBehaviour
         if (_handle.IsActive())
             _handle.Cancel();
 
-        _handle = LMotion.Create(transform.localScale, _originalScale, Duration)
+        var rect = GetComponent<RectTransform>();
+        _handle = LMotion.Create(rect.localScale, _originalScale, Duration)
             .WithEase(Ease)
-            .BindToLocalScale(transform);
+            .BindToLocalScale(rect);
     }
 
     private void OnDestroy()
@@ -50,7 +54,7 @@ public class HoverBehaviour : MonoBehaviour
             _handle.Cancel();
     }
 
-    private void OnMouseEnter()
+    public void OnPointerEnter(PointerEventData eventData)
     {
         if (!CanHover)
             return;
@@ -58,7 +62,7 @@ public class HoverBehaviour : MonoBehaviour
         HoverStart();
     }
 
-    private void OnMouseExit()
+    public void OnPointerExit(PointerEventData eventData)
     {
         if (!CanHover)
             return;
