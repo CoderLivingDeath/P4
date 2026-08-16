@@ -22,7 +22,6 @@ public class RewardSlotPanel : MonoBehaviour
         {
             _icon.gameObject.SetActive(icon != null);
             _icon.sprite = icon;
-            _icon.color = locked ? _lockedColor : Color.white;
         }
 
         if (_iconBg != null)

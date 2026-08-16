@@ -33,9 +33,6 @@ public class HuntWorldUI : ContentUi, IInitializable, IDisposable
     private List<RewardSlotPanel> _slots = new List<RewardSlotPanel>();
 
     [SerializeField]
-    private Sprite _lockSprite;
-
-    [SerializeField]
     private GameObject _postHuntUI;
 
     [SerializeField]
@@ -177,7 +174,7 @@ public class HuntWorldUI : ContentUi, IInitializable, IDisposable
 
         int slotIndex = 0;
 
-        SetSlot(slotIndex++, null, FormatTime(entry.MissionTimeSeconds), false);
+        SetSlot(slotIndex++, _rewardRepository != null ? _rewardRepository.TimeIcon : null, FormatTime(entry.MissionTimeSeconds), false);
 
         Reward food = entry.Food;
         string foodAmount = entry.FoodUseRange
@@ -190,11 +187,17 @@ public class HuntWorldUI : ContentUi, IInitializable, IDisposable
             Dino dino = locationDino != null ? locationDino.Dino : null;
             bool locked = locationDino != null && !locationDino.AvailableFromStart;
 
-            string amount = dino != null
-                ? string.Format("{0} {1}%", dino.Name, Mathf.RoundToInt(locationDino.CatchChance * 100f))
-                : string.Empty;
+            string amount = locked
+                ? "?"
+                : dino != null
+                    ? string.Format("{0} {1}%", dino.Name, Mathf.RoundToInt(locationDino.CatchChance * 100f))
+                    : string.Empty;
 
-            SetSlot(slotIndex++, locked ? _lockSprite : (dino != null ? dino.Sprite : null), amount, locked);
+            Sprite icon = locked
+                ? (_rewardRepository != null ? _rewardRepository.UnknownRewardIcon : null)
+                : dino != null ? dino.Sprite : null;
+
+            SetSlot(slotIndex++, icon, amount, locked);
         }
 
         while (slotIndex < _slots.Count)
@@ -281,7 +284,7 @@ public class HuntWorldUI : ContentUi, IInitializable, IDisposable
 
         if (_currentEntry != null)
         {
-            SetSlot(slotIndex++, null, FormatTime(_currentEntry.MissionTimeSeconds), false);
+            SetSlot(slotIndex++, _rewardRepository != null ? _rewardRepository.TimeIcon : null, FormatTime(_currentEntry.MissionTimeSeconds), false);
 
             Reward food = _currentEntry.Food;
             string foodAmount = _pendingFood > 0 ? string.Format("+{0}", _pendingFood) : string.Empty;

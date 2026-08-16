@@ -77,3 +77,5 @@ MonoBehaviour:
     - _dino: {fileID: 11400000, guid: ca9b4f10c14491c4985dca93c38c3f54, type: 2}
       _availableFromStart: 1
       _catchChance: 0.3
+  _unknownRewardIcon: {fileID: -6548008519882821858, guid: 2a01691a87fedbe4aa6de6f1c0c0f3d4, type: 3}
+  _timeIcon: {fileID: 21300000, guid: 4a8908bfbb6bbc54fb15cf902e6532f3, type: 3}
