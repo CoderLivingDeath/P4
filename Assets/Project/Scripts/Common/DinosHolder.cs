@@ -55,6 +55,16 @@ public class DinosHolder : MonoBehaviour
         Despawn(dino);
     }
 
+    public void Release(Dino dino)
+    {
+        if (dino == null || !_spawned.TryGetValue(dino, out GameObject go) || go == null)
+            return;
+
+        DinoBrainBehaviour dinoBrain = go.GetComponentInChildren<DinoBrainBehaviour>();
+        if (dinoBrain != null)
+            dinoBrain.Release();
+    }
+
     public void Clear()
     {
         foreach (var dino in _dinos.ToList())
@@ -103,12 +113,11 @@ public class DinosHolder : MonoBehaviour
             {
                 DinoBrainBehaviour dinoBrain = go.GetComponentInChildren<DinoBrainBehaviour>();
                 Dino captured = dino;
-                Vector3 targetPos = go.transform.position;
                 tameButton.onClick.AddListener(() =>
                 {
                     if (dinoBrain != null)
                         dinoBrain.StopMoving();
-                    _fermer.TameDino(captured, targetPos);
+                    _fermer.TameDino(captured, go.transform.position);
                 });
             }
         }

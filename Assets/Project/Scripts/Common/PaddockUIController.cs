@@ -62,7 +62,8 @@ public class PaddockUIController : ContentUi
 
     private void OnSlotChanged(int index)
     {
-        UpdateSlot(index);
+        if (isActiveAndEnabled)
+            UpdateSlot(index);
     }
 
     public void SetModel(PaddockModel model)
@@ -89,7 +90,7 @@ public class PaddockUIController : ContentUi
 
     private void UpdateSlot(int index)
     {
-        if (_model == null || _slots == null || index >= _slots.Count)
+        if (_model == null || _slots == null || index < 0 || index >= _slots.Count || index >= _model.Count)
             return;
 
         Slot slot = _slots[index];
