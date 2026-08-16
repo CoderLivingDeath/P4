@@ -31,6 +31,9 @@ public class GameplayInstaller : MonoInstaller
     private LocationSettings _locationSettings;
 
     [SerializeField]
+    private RewardRepository _rewardRepository;
+
+    [SerializeField]
     private GameOverUI _gameOverUI;
 
     public override void InstallBindings()
@@ -46,6 +49,7 @@ public class GameplayInstaller : MonoInstaller
         Container.BindInterfacesAndSelfTo<PeopleService>().AsSingle();
         Container.Bind<HungerSettings>().FromInstance(_hungerSettings).AsSingle();
         Container.Bind<LocationSettings>().FromInstance(_locationSettings).AsSingle();
+        Container.Bind<RewardRepository>().FromInstance(_rewardRepository).AsSingle();
         Container.BindInterfacesAndSelfTo<GameOverUI>().FromInstance(_gameOverUI).AsSingle();
         Container.BindInterfacesAndSelfTo<HungerService>().AsSingle();
         Container.Bind<GameManager>().AsSingle();

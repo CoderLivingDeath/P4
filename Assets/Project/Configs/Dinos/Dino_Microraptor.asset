@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5582c04af707b6409fc6fd80ad988c2, type: 3}
+  m_Name: Dino_Microraptor
+  m_EditorClassIdentifier: Assembly-CSharp::Dino
+  _name: Microraptor
+  _sprite: {fileID: 4508318386055824055, guid: b31dff3d02c85ed4b9f905210c11f1a9, type: 3}
+  _type: 4

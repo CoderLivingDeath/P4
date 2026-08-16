@@ -1410,6 +1410,7 @@ MonoBehaviour:
   _peopleSettings: {fileID: 11400000, guid: 70d9102bcf1fee04fa3295561a75fbd9, type: 2}
   _hungerSettings: {fileID: 11400000, guid: 40f0f2ea6d862ae43bfa6d869b8585d0, type: 2}
   _locationSettings: {fileID: 11400000, guid: c535067c70c1e024db4f4dc8a92b27ce, type: 2}
+  _rewardRepository: {fileID: 11400000, guid: 635b5cba075221248912ebd47e4c735d, type: 2}
   _gameOverUI: {fileID: 2005559364}
 --- !u!114 &1435989740
 MonoBehaviour:
