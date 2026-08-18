@@ -46,6 +46,9 @@ public class GameplayInstaller : MonoInstaller
     [SerializeField]
     private DinoFoodSettings _dinoFoodSettings;
 
+    [SerializeField]
+    private VillageGuardSpawner _villageGuardSpawner;
+
     public override void InstallBindings()
     {
         Container.Bind<CameraController>().FromInstance(_cameraController).AsSingle();
@@ -67,6 +70,7 @@ public class GameplayInstaller : MonoInstaller
         Container.BindInterfacesAndSelfTo<DinoQueueUI>().FromInstance(_dinoQueueUI).AsSingle();
         Container.BindInterfacesAndSelfTo<DinoAllocationUI>().FromInstance(_dinoAllocationUI).AsSingle();
         Container.Bind<DinoFoodSettings>().FromInstance(_dinoFoodSettings).AsSingle();
+        Container.Bind<VillageGuardSpawner>().FromInstance(_villageGuardSpawner).AsSingle();
         Container.Bind<GameManager>().AsSingle();
     }
 }

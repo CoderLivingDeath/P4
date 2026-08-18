@@ -55,6 +55,9 @@ public class DinoAllocationUI : ContentUi, IInitializable, IDisposable
     [Inject]
     private DinoFoodSettings _dinoFoodSettings;
 
+    [Inject]
+    private VillageGuardSpawner _villageGuardSpawner;
+
     public void Initialize()
     {
         Hide();
@@ -168,6 +171,14 @@ public class DinoAllocationUI : ContentUi, IInitializable, IDisposable
 
                 Debug.Log(string.Format("Transfer fact: {0} ({1}) -> reason: {2} | food: +{3}",
                     _currentDino.Name, _currentDino.Type, reason, food));
+            }
+            if (reason == TransferReason.Defense)
+            {
+                if (_villageGuardSpawner != null)
+                    _villageGuardSpawner.SpawnGuard(_currentDino);
+
+                Debug.Log(string.Format("Transfer fact: {0} ({1}) -> reason: {2}",
+                    _currentDino.Name, _currentDino.Type, reason));
             }
             else
             {

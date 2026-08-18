@@ -23,6 +23,15 @@ public class DinoSetuper : MonoBehaviour
             _brain.SetArea(area);
     }
 
+    public void Setup(DinoModel dino, BoxCollider2D area)
+    {
+        if (_renderer != null && dino != null)
+            _renderer.sprite = dino.Sprite;
+
+        if (_brain != null)
+            _brain.SetArea(area);
+    }
+
     public void Clear()
     {
         if (_hodler != null)
