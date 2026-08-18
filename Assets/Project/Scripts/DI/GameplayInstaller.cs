@@ -37,6 +37,15 @@ public class GameplayInstaller : MonoInstaller
     [SerializeField]
     private GameOverUI _gameOverUI;
 
+    [SerializeField]
+    private DinoQueueUI _dinoQueueUI;
+
+    [SerializeField]
+    private DinoAllocationUI _dinoAllocationUI;
+
+    [SerializeField]
+    private DinoFoodSettings _dinoFoodSettings;
+
     public override void InstallBindings()
     {
         Container.Bind<CameraController>().FromInstance(_cameraController).AsSingle();
@@ -54,6 +63,10 @@ public class GameplayInstaller : MonoInstaller
         Container.BindInterfacesAndSelfTo<GameOverUI>().FromInstance(_gameOverUI).AsSingle();
         Container.BindInterfacesAndSelfTo<HungerService>().AsSingle();
         Container.BindInterfacesAndSelfTo<MissionService>().AsSingle();
+        Container.Bind<DinoQueueService>().AsSingle();
+        Container.BindInterfacesAndSelfTo<DinoQueueUI>().FromInstance(_dinoQueueUI).AsSingle();
+        Container.BindInterfacesAndSelfTo<DinoAllocationUI>().FromInstance(_dinoAllocationUI).AsSingle();
+        Container.Bind<DinoFoodSettings>().FromInstance(_dinoFoodSettings).AsSingle();
         Container.Bind<GameManager>().AsSingle();
     }
 }

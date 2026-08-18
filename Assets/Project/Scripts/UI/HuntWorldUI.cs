@@ -33,9 +33,6 @@ public class HuntWorldUI : ContentUi, IInitializable, IDisposable
     private List<RewardSlotPanel> _slots = new List<RewardSlotPanel>();
 
     [SerializeField]
-    private Sprite _lockSprite;
-
-    [SerializeField]
     private GameObject _postHuntUI;
 
     [SerializeField]
@@ -52,7 +49,7 @@ public class HuntWorldUI : ContentUi, IInitializable, IDisposable
 
     private int _pendingFood;
 
-    private readonly List<Dino> _caughtDinos = new List<Dino>();
+    private readonly List<DinoModel> _caughtDinos = new List<DinoModel>();
 
     private bool _hasPendingReward;
 
@@ -67,6 +64,9 @@ public class HuntWorldUI : ContentUi, IInitializable, IDisposable
 
     [Inject]
     private ResourcesManager _resourcesManager;
+
+    [Inject]
+    private DinoQueueService _dinoQueueService;
 
     public void Initialize()
     {
@@ -177,7 +177,7 @@ public class HuntWorldUI : ContentUi, IInitializable, IDisposable
 
         int slotIndex = 0;
 
-        SetSlot(slotIndex++, null, FormatTime(entry.MissionTimeSeconds), false);
+        SetSlot(slotIndex++, _rewardRepository != null ? _rewardRepository.TimeIcon : null, FormatTime(entry.MissionTimeSeconds), false);
 
         Reward food = entry.Food;
         string foodAmount = entry.FoodUseRange
@@ -190,11 +190,17 @@ public class HuntWorldUI : ContentUi, IInitializable, IDisposable
             Dino dino = locationDino != null ? locationDino.Dino : null;
             bool locked = locationDino != null && !locationDino.AvailableFromStart;
 
-            string amount = dino != null
-                ? string.Format("{0} {1}%", dino.Name, Mathf.RoundToInt(locationDino.CatchChance * 100f))
-                : string.Empty;
+            string amount = locked
+                ? "?"
+                : dino != null
+                    ? string.Format("{0} {1}%", dino.Name, Mathf.RoundToInt(locationDino.CatchChance * 100f))
+                    : string.Empty;
 
-            SetSlot(slotIndex++, locked ? _lockSprite : (dino != null ? dino.Sprite : null), amount, locked);
+            Sprite icon = locked
+                ? (_rewardRepository != null ? _rewardRepository.UnknownRewardIcon : null)
+                : dino != null ? dino.Sprite : null;
+
+            SetSlot(slotIndex++, icon, amount, locked);
         }
 
         while (slotIndex < _slots.Count)
@@ -245,7 +251,7 @@ public class HuntWorldUI : ContentUi, IInitializable, IDisposable
                     continue;
 
                 if (UnityEngine.Random.value <= locationDino.CatchChance)
-                    _caughtDinos.Add(locationDino.Dino);
+                    _caughtDinos.Add(DinoFactory.Create(locationDino.Dino));
             }
         }
 
@@ -281,7 +287,7 @@ public class HuntWorldUI : ContentUi, IInitializable, IDisposable
 
         if (_currentEntry != null)
         {
-            SetSlot(slotIndex++, null, FormatTime(_currentEntry.MissionTimeSeconds), false);
+            SetSlot(slotIndex++, _rewardRepository != null ? _rewardRepository.TimeIcon : null, FormatTime(_currentEntry.MissionTimeSeconds), false);
 
             Reward food = _currentEntry.Food;
             string foodAmount = _pendingFood > 0 ? string.Format("+{0}", _pendingFood) : string.Empty;
@@ -293,7 +299,7 @@ public class HuntWorldUI : ContentUi, IInitializable, IDisposable
             SetSlot(slotIndex++, null, string.Empty, false);
         }
 
-        foreach (Dino dino in _caughtDinos)
+        foreach (DinoModel dino in _caughtDinos)
         {
             if (slotIndex >= _slots.Count)
                 break;
@@ -309,6 +315,12 @@ public class HuntWorldUI : ContentUi, IInitializable, IDisposable
     {
         if (_resourcesManager != null && _pendingFood > 0)
             _resourcesManager.AddFood(_pendingFood);
+
+        foreach (DinoModel dino in _caughtDinos)
+        {
+            if (dino != null)
+                _dinoQueueService.Add(dino);
+        }
 
         _hasPendingReward = false;
         _pendingFood = 0;
