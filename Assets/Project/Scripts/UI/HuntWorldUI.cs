@@ -49,7 +49,7 @@ public class HuntWorldUI : ContentUi, IInitializable, IDisposable
 
     private int _pendingFood;
 
-    private readonly List<Dino> _caughtDinos = new List<Dino>();
+    private readonly List<DinoModel> _caughtDinos = new List<DinoModel>();
 
     private bool _hasPendingReward;
 
@@ -64,6 +64,9 @@ public class HuntWorldUI : ContentUi, IInitializable, IDisposable
 
     [Inject]
     private ResourcesManager _resourcesManager;
+
+    [Inject]
+    private DinoQueueService _dinoQueueService;
 
     public void Initialize()
     {
@@ -248,7 +251,7 @@ public class HuntWorldUI : ContentUi, IInitializable, IDisposable
                     continue;
 
                 if (UnityEngine.Random.value <= locationDino.CatchChance)
-                    _caughtDinos.Add(locationDino.Dino);
+                    _caughtDinos.Add(DinoFactory.Create(locationDino.Dino));
             }
         }
 
@@ -296,7 +299,7 @@ public class HuntWorldUI : ContentUi, IInitializable, IDisposable
             SetSlot(slotIndex++, null, string.Empty, false);
         }
 
-        foreach (Dino dino in _caughtDinos)
+        foreach (DinoModel dino in _caughtDinos)
         {
             if (slotIndex >= _slots.Count)
                 break;
@@ -312,6 +315,12 @@ public class HuntWorldUI : ContentUi, IInitializable, IDisposable
     {
         if (_resourcesManager != null && _pendingFood > 0)
             _resourcesManager.AddFood(_pendingFood);
+
+        foreach (DinoModel dino in _caughtDinos)
+        {
+            if (dino != null)
+                _dinoQueueService.Add(dino);
+        }
 
         _hasPendingReward = false;
         _pendingFood = 0;

@@ -87,6 +87,7 @@ GameObject:
   - component: {fileID: 6095571055156297364}
   - component: {fileID: 2657015222659328206}
   - component: {fileID: 1522330068072423442}
+  - component: {fileID: 6612121243618488050}
   m_Layer: 0
   m_Name: DinoInQueueButton
   m_TagString: Untagged
@@ -114,7 +115,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 300, y: 343.9}
+  m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6095571055156297364
 CanvasRenderer:
@@ -198,6 +199,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6612121243618488050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1898502358540476991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26a9bf9a74a962941994c1dc4165def6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DinoInQueueButton
+  _icon: {fileID: 3395192054199176708}
+  _button: {fileID: 1522330068072423442}
 --- !u!1 &5536554070217582213
 GameObject:
   m_ObjectHideFlags: 0

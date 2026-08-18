@@ -298,6 +298,7 @@ GameObject:
   - component: {fileID: 801578677831557331}
   - component: {fileID: 2982929600475411859}
   - component: {fileID: 8941062426881518118}
+  - component: {fileID: 8822650302219197936}
   m_Layer: 0
   m_Name: DinoInfoPanelSlot
   m_TagString: Untagged
@@ -366,6 +367,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8822650302219197936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7087787247710505117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c24038bafa6fd3340bd13d12e6db3ef0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  _statType: 0
+  _icon: {fileID: 8054738168078297194}
+  _nameText: {fileID: 5276043139371715749}
+  _valueText: {fileID: 6013181321954861379}
 --- !u!1 &7139948077574387882
 GameObject:
   m_ObjectHideFlags: 0

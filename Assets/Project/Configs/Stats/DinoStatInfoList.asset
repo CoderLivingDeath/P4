@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cafea4e94862a14d90119e318779256, type: 3}
+  m_Name: DinoStatInfoList
+  m_EditorClassIdentifier: Assembly-CSharp::DinoStatInfoList
+  _infos:
+  - {fileID: 11400000, guid: d4779c647e134d643b1423ef11685396, type: 2}
+  - {fileID: 11400000, guid: 89e98e215ac74ea4880da014f6f0021a, type: 2}
+  - {fileID: 11400000, guid: 8080baa44abaee742be56ff176a863f4, type: 2}
+  - {fileID: 11400000, guid: 37d13b9178d04404baf7ef7d6d97da35, type: 2}
